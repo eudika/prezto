@@ -38,6 +38,11 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
+  'command-not-found' \
+  'git' \
+  'history-substring-search' \
+  'node' \
+  'syntax-highlighting' \
   'prompt'
 
 #
