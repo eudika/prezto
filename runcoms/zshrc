@@ -12,6 +12,9 @@ fi
 
 # Customize to your needs...
 
+# ls after every cd
+function chpwd() { ls }
+
 # Aliases
 alias vim=nvim
 alias python=python3
