@@ -15,6 +15,13 @@ fi
 # ls after every cd
 function chpwd() { ls }
 
+# Enable dircolors
+# TODO: Support BSD ls (i.e. macOS's)
+if type dircolors >/dev/null && [[ -s $HOME/.dircolors ]]; then
+    source <(dircolors $HOME/.dircolors)
+    zstyle ':completion:*:default' list-colors "$LS_COLORS"
+fi
+
 # Aliases
 alias vim=nvim
 alias python=python3
