@@ -26,3 +26,8 @@ fi
 alias vim=nvim
 alias python=python3
 alias pip='python3 -m pip'
+
+# Read machine specific configuration
+if [[ -s $HOME/.zshrc.machine ]]; then
+    source $HOME/.zshrc.machine
+fi
