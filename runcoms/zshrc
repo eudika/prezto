@@ -22,6 +22,15 @@ if type dircolors >/dev/null && [[ -s $HOME/.dircolors ]]; then
     zstyle ':completion:*:default' list-colors "$LS_COLORS"
 fi
 
+# Activate python venv
+function workon() {
+    if [ ! -f "$1/bin/activate" ]; then
+        echo "'$1' is not a venv directory" >&2
+        return 1
+    fi
+    source "$1/bin/activate"
+}
+
 # Aliases
 if type nvim >/dev/null; then
     alias vim=nvim
