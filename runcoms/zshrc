@@ -32,6 +32,9 @@ function workon() {
 }
 
 # Aliases
+if type "explorer.exe" >/dev/null; then
+    alias open='explorer.exe'
+fi
 if type nvim >/dev/null; then
     alias vim=nvim
 fi

@@ -13,6 +13,12 @@ if [[ "$OSTYPE" == darwin* ]]; then
     export BROWSER='open'
 fi
 
+# Open in explorer when WSL
+# TODO: This command always returns 1 as status code
+if type explorer.exe >/dev/null; then
+    export BROWSER='explorer.exe'
+fi
+
 #
 # Editors
 #
