@@ -45,3 +45,6 @@ alias pip='python3 -m pip'
 if [[ -s $HOME/.zshrc.machine ]]; then
     source $HOME/.zshrc.machine
 fi
+
+# List current directory
+ls
