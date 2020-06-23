@@ -22,13 +22,19 @@ if type dircolors >/dev/null && [[ -s $HOME/.dircolors ]]; then
     zstyle ':completion:*:default' list-colors "$LS_COLORS"
 fi
 
-# Activate python venv
+# Initialize / activate python venv
 function workon() {
-    if [ ! -f "$1/bin/activate" ]; then
-        echo "'$1' is not a venv directory" >&2
+    name=${1:-venv}
+    if [ -f "$name/bin/activate" ]; then
+        source "$name/bin/activate"
+    elif [ ! -e $name ]; then
+        python3 -m venv $name \
+            && source "$name/bin/activate" \
+            && python3 -m pip install neovim jedi flake8 mypy autopep8 isort
+    else
+        echo "'$name' is not a venv directory" >&2
         return 1
     fi
-    source "$1/bin/activate"
 }
 
 # Aliases
