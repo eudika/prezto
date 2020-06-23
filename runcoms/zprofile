@@ -58,6 +58,9 @@ path=(
     $path
 )
 
+# Python3 executables
+export PY_USER_BIN=$(python3 -c 'import site; print(site.USER_BASE + "/bin")')
+path+=$PY_USER_BIN
 #
 # Less
 #

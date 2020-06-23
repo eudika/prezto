@@ -44,6 +44,7 @@ fi
 if type nvim >/dev/null; then
     alias vim=nvim
 fi
+# Fortunately, I never use python2.x
 alias python=python3
 alias pip='python3 -m pip'
 
