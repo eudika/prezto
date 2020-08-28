@@ -8,7 +8,15 @@
 
 # Load manually installed NVM into the shell session.
 if [[ -s "${NVM_DIR:=$HOME/.nvm}/nvm.sh" ]]; then
-  source "${NVM_DIR}/nvm.sh"
+  # Add latest node to the path.
+  path=("$NVM_DIR/versions/node/$(ls $NVM_DIR/versions/node | sort -V | tail -n1)/bin/": $path)
+  # Load NVM lazily.
+  nvm() {
+    unset nvm;
+    # This line is very slow.
+    source "$NVM_DIR/nvm.sh"
+    nvm "$@"
+  }
 
 # Load package manager installed NVM into the shell session.
 elif (( $+commands[brew] )) && \
